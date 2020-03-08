@@ -1,5 +1,5 @@
 {
-  "name": "gatsby-plugin-wirehead-tree",
+  "name": "gatsby-theme-wirehead-tree",
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
@@ -9,12 +9,12 @@
   "author": "Wirehead <wh-npm@wirewd.com>",
   "license": "SEE LICENSE IN LICENSE.md",
   "bugs": {
-    "url": "https://github.com/wirehead/gatsby-plugin-wirehead-tree/issues"
+    "url": "https://github.com/wirehead/gatsby-theme-wirehead-tree/issues"
   },
-  "homepage": "https://github.com/wirehead/gatsby-plugin-wirehead-tree#readme",
+  "homepage": "https://github.com/wirehead/gatsby-theme-wirehead-tree#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wirehead/gatsby-plugin-wirehead-tree.git"
+    "url": "git+https://github.com/wirehead/gatsby-theme-wirehead-tree.git"
   },
   "keywords": [
     "gatsby",
