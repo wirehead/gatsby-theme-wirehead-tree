@@ -124,8 +124,6 @@ exports.onCreatePage = ({ page, pathPrefix, actions }, themeOptions) => {
 exports.onPreBootstrap = ({ store }, themeOptions) => {
   const {extraTitles} = withDefaults(themeOptions);
   titles = extraTitles;
-  console.log(titles);
-  console.log(themeOptions);
 }
 
 exports.createPages = async ({ actions, graphql, pathPrefix, reporter }, themeOptions) => {
