@@ -195,6 +195,7 @@ exports.createPages = async ({ actions, graphql, pathPrefix, reporter }, themeOp
               date
               type
               description
+              updated
             }
             excerpt(pruneLength: 300)
           }
@@ -229,6 +230,7 @@ exports.createPages = async ({ actions, graphql, pathPrefix, reporter }, themeOp
         date: node.frontmatter.date,
         breadcrumbs: toBreadcrumb(basePath, pagePath, titles),
         excerpt: node.frontmatter.description || node.excerpt,
+        updated: node.frontmatter.updated || node.frontmatter.date,
       },
     })
   })

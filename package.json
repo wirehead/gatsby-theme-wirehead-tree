@@ -1,6 +1,6 @@
 {
   "name": "gatsby-theme-wirehead-tree",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -38,6 +38,7 @@
     "react-dom": "^16.12.0"
   },
   "dependencies": {
+    "@babel/runtime": "^7.9.2",
     "gatsby-core-utils": "^1.0.30"
   }
 }
