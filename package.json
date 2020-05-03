@@ -1,6 +1,6 @@
 {
   "name": "gatsby-theme-wirehead-tree",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -28,17 +28,17 @@
     "node": ">=8.0.0"
   },
   "devDependencies": {
-    "gatsby": "^2.20.12",
+    "gatsby": "^2.20.36",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
   "peerDependencies": {
-    "gatsby": "^2.20.12",
+    "gatsby": "^2.20.36",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
   "dependencies": {
     "@babel/runtime": "^7.9.2",
-    "gatsby-core-utils": "^1.1.1"
+    "gatsby-core-utils": "^1.2.0"
   }
 }

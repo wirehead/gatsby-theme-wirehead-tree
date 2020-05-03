@@ -4,7 +4,7 @@ module.exports = themeOptions => {
   const componentMap = themeOptions.componentMap;
   const extraTitles = themeOptions.extraTitles || {}
   
-  const ignorePages = [
+  const ignorePages = themeOptions.ignorePages || [
     `/dev-404-page/`,
     `/404/`,
     `/404.html`,
