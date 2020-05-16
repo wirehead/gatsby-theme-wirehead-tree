@@ -2,7 +2,8 @@ module.exports = themeOptions => {
   const basePath = themeOptions.basePath || `/`;
   const postType = themeOptions.postType;
   const componentMap = themeOptions.componentMap;
-  const extraTitles = themeOptions.extraTitles || {}
+  const extraTitles = themeOptions.extraTitles || {};
+  const publishDraft = themeOptions.publishDraft;
   
   const ignorePages = themeOptions.ignorePages || [
     `/dev-404-page/`,
@@ -18,5 +19,6 @@ module.exports = themeOptions => {
     componentMap,
     ignorePages,
     extraTitles,
+    publishDraft
   }
 }

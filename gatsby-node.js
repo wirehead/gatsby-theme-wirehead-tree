@@ -80,6 +80,57 @@ const toBreadcrumb = (basePath, path, names) => {
   return rootCrumb.concat(childCrumbs)
 }
 
+exports.onCreateNode = ({ node, actions }, pluginOptions) => {
+  const { createNodeField } = actions;
+
+  if (node.internal.type === 'SitePage') {
+    return;
+  }
+
+  if (node.frontmatter) {
+    createNodeField({
+      node,
+      name: "date",
+      value: node.frontmatter.date,
+    });
+    createNodeField({
+      node,
+      name: "updated",
+      value: node.frontmatter.updated || node.frontmatter.date,
+    });
+    if (node.frontmatter.draft) {
+      createNodeField({
+        node,
+        name: "draft",
+        value: node.frontmatter.draft,
+      });
+      return;
+    } else {
+      createNodeField({
+        node,
+        name: "draft",
+        value: false,
+      });
+      return;
+    }
+  } else {
+    createNodeField({
+      node,
+      name: "draft",
+      value: false,
+    });
+    createNodeField({
+      node,
+      name: "date",
+      value: null,
+    });
+    createNodeField({
+      node,
+      name: "updated",
+      value: null,
+    });
+  }
+}
 
 exports.onCreatePage = ({ page, pathPrefix, actions }, themeOptions) => {
   const {ignorePages} = withDefaults(themeOptions);
@@ -127,7 +178,7 @@ exports.onPreBootstrap = ({ store }, themeOptions) => {
 }
 
 exports.createPages = async ({ actions, graphql, pathPrefix, reporter }, themeOptions) => {
-  const {postType, componentMap} = withDefaults(themeOptions);
+  const {publishDraft, postType, componentMap} = withDefaults(themeOptions);
 
   const basePath = genBasePath(pathPrefix);
 
@@ -190,12 +241,15 @@ exports.createPages = async ({ actions, graphql, pathPrefix, reporter }, themeOp
                 sourceInstanceName
               }
             }
+            fields {
+              draft
+              date
+              updated
+            }
             frontmatter {
               title
-              date
               type
               description
-              updated
             }
             excerpt(pruneLength: 300)
           }
@@ -217,6 +271,9 @@ exports.createPages = async ({ actions, graphql, pathPrefix, reporter }, themeOp
     const depth = getDepthFromPath(pagePath);
     const comp = mapComponent(postType, componentMap, node.frontmatter.type);
 
+    if (!publishDraft && node.fields.draft) {
+      return;
+    }
     createPage({
       path: pagePath,
       component: comp,
@@ -227,10 +284,10 @@ exports.createPages = async ({ actions, graphql, pathPrefix, reporter }, themeOp
         depth: depth,
         title: title,
         type: node.frontmatter.type,
-        date: node.frontmatter.date,
+        date: node.fields.date,
         breadcrumbs: toBreadcrumb(basePath, pagePath, titles),
         excerpt: node.frontmatter.description || node.excerpt,
-        updated: node.frontmatter.updated || node.frontmatter.date,
+        updated: node.fields.updated,
       },
     })
   })

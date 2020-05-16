@@ -13,13 +13,14 @@ Specifically:
 * I want to have titles for each of the pages (specified as the `title` key in the frontmatter) and I want them to be respected in the navigational elements and breadcrumbs with.
 * I want to be able to add dates with a `date` key in the frontmatter and be able to search on them.
 * I want to be able to use a `type` key in the frontmatter to select the template because MDX has some weird stuff with it's native idea of templating and it doesn't really work the way I wanted it to.
-* I also want to be able to make JSX pages that have front matter in them.  And I don't want it to be obvious how the pages.
+* I also want to be able to make JSX pages that have front matter in them.  And I don't want to have a bunch of special-case code generating the navigational bits of the site that check if it's using JSX or MDX.
+* I wanted to mark something as a draft and have it not be published.
 
 **WORK IN PROGRESS WARNING**: I'm totally not finished messing with this.
 
 ## Release status
 
-This is not, to my knowledge, running in production and probably not quite ready for that yet.
+I'm using it, but it's still getting moved around in places.
 
 ## Installation
 
