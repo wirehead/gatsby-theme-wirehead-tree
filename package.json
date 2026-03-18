@@ -1,6 +1,6 @@
 {
   "name": "gatsby-theme-wirehead-tree",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -25,7 +25,7 @@
   ],
   "engines": {
     "npm": ">=6.0.0",
-    "node": ">=8.0.0"
+    "node": ">=12.22.0"
   },
   "devDependencies": {
     "gatsby": "^3.3.0",
