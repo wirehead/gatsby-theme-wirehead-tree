@@ -95,6 +95,11 @@ exports.onCreateNode = ({ node, actions }, pluginOptions) => {
     });
     createNodeField({
       node,
+      name: "hidden",
+      value: node.frontmatter.hidden,
+    });
+    createNodeField({
+      node,
       name: "updated",
       value: node.frontmatter.updated || node.frontmatter.date,
     });
@@ -250,6 +255,7 @@ exports.createPages = async ({ actions, graphql, pathPrefix, reporter }, themeOp
               title
               type
               description
+              hidden
             }
             excerpt(pruneLength: 300)
           }
