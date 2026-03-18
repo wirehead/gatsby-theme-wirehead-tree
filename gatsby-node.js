@@ -285,6 +285,7 @@ exports.createPages = async ({ actions, graphql, pathPrefix, reporter }, themeOp
         title: title,
         type: node.frontmatter.type,
         date: node.fields.date,
+        hidden: node.frontmatter.hidden,
         breadcrumbs: toBreadcrumb(basePath, pagePath, titles),
         excerpt: node.frontmatter.description || node.excerpt,
         updated: node.fields.updated,
