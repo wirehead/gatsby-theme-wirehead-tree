@@ -15,6 +15,7 @@ Specifically:
 * I want to be able to use a `type` key in the frontmatter to select the template because MDX has some weird stuff with it's native idea of templating and it doesn't really work the way I wanted it to.
 * I also want to be able to make JSX pages that have front matter in them.  And I don't want to have a bunch of special-case code generating the navigational bits of the site that check if it's using JSX or MDX.
 * I wanted to mark something as a draft and have it not be published.
+* I wanted to mark something as hidden and have it excluded from the page queries
 
 **WORK IN PROGRESS WARNING**: I'm totally not finished messing with this.
 

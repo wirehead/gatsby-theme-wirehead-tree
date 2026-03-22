@@ -93,11 +93,19 @@ exports.onCreateNode = ({ node, actions }, pluginOptions) => {
       name: "date",
       value: node.frontmatter.date,
     });
-    createNodeField({
-      node,
-      name: "hidden",
-      value: node.frontmatter.hidden,
-    });
+    if (node.frontmatter.hidden) {
+      createNodeField({
+        node,
+        name: "hidden",
+        value: node.frontmatter.hidden,
+      });
+    } else {
+      createNodeField({
+        node,
+        name: "hidden",
+        value: false,
+      });
+    }
     createNodeField({
       node,
       name: "updated",
@@ -132,6 +140,11 @@ exports.onCreateNode = ({ node, actions }, pluginOptions) => {
     createNodeField({
       node,
       name: "updated",
+      value: null,
+    });
+    createNodeField({
+      node,
+      name: "hidden",
       value: null,
     });
   }
@@ -250,12 +263,12 @@ exports.createPages = async ({ actions, graphql, pathPrefix, reporter }, themeOp
               draft
               date
               updated
+              hidden
             }
             frontmatter {
               title
               type
               description
-              hidden
             }
             excerpt(pruneLength: 300)
           }
@@ -291,7 +304,7 @@ exports.createPages = async ({ actions, graphql, pathPrefix, reporter }, themeOp
         title: title,
         type: node.frontmatter.type,
         date: node.fields.date,
-        hidden: node.frontmatter.hidden,
+        hidden: node.fields.hidden,
         breadcrumbs: toBreadcrumb(basePath, pagePath, titles),
         excerpt: node.frontmatter.description || node.excerpt,
         updated: node.fields.updated,
